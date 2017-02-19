@@ -17,5 +17,6 @@ Welcome to Forge's documentation!
 Indices and tables
 ==================
 
+* :doc:`/cheatsheet`
 * :ref:`genindex`
 * :ref:`search`
