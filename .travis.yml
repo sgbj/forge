@@ -1,0 +1,19 @@
+sudo: false
+language: python - "2.7"
+
+install:
+    - pip install --user -r requirements.txt
+    - export PATH=$HOME/.local/bin:$PATH
+
+script:
+    - git config --global user.name $GH_NAME
+    - git config --global user.email $GH_EMAIL
+    - git clone https://$GH_NAME:$GH_TOKEN@github.com/$GH_NAME/$GH_REPO.git
+    - cd $GH_REPO
+    - make html
+    - rm .gitignore
+    - git add --all
+    - git commit -m "gh-pages"
+    - git subtree split --prefix output -b gh-pages
+    - git push -f origin gh-pages:gh-pages
+    - git branch -D gh-pages
