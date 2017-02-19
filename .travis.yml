@@ -14,6 +14,6 @@ script:
     - rm .gitignore
     - git add --all
     - git commit -m "gh-pages"
-    - git subtree split --prefix output -b gh-pages
+    - git subtree split --prefix _build/html -b gh-pages
     - git push -f origin gh-pages:gh-pages
     - git branch -D gh-pages
